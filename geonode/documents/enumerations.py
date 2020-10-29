@@ -49,6 +49,7 @@ DOCUMENT_TYPE_MAP = {
     'rar': 'archive',
     'gz': 'archive',
     'zip': 'archive',
+    'mpk': 'archive',
 }
 
 
@@ -80,4 +81,5 @@ DOCUMENT_MIMETYPE_MAP = {
     'rar': 'application/x-rar-compressed',
     'gz': 'application/x-gzip',
     'zip': 'application/zip',
+    'mpk': 'archive',
 }

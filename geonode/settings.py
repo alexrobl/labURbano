@@ -487,7 +487,7 @@ except ValueError:
     ALLOWED_DOCUMENT_TYPES = [
         'doc', 'docx', 'gif', 'jpg', 'jpeg', 'ods', 'odt', 'odp', 'pdf', 'png',
         'ppt', 'pptx', 'rar', 'sld', 'tif', 'tiff', 'txt', 'xls', 'xlsx', 'xml',
-        'zip', 'gz', 'qml'
+        'zip', 'gz', 'qml','mpk'
     ] if os.getenv('ALLOWED_DOCUMENT_TYPES') is None \
         else re.split(r' *[,|:|;] *', os.getenv('ALLOWED_DOCUMENT_TYPES'))
 
@@ -1741,7 +1741,7 @@ if os.name == 'nt':
       3. Superusers can do enything.
 
     - if [ GROUP_PRIVATE_RESOURCES == True ]
-      The "unapproved" and "unpublished" Resources will be accessible **ONLY** by owners, superusers and member of 
+      The "unapproved" and "unpublished" Resources will be accessible **ONLY** by owners, superusers and member of
        the belonging groups.
 
     - if [ GROUP_MANDATORY_RESOURCES == True ]
