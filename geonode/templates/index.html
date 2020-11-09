@@ -16,13 +16,20 @@
   {% else %}
   <div class="jumbotron">
   	<div class="container">
-        <h1>{{custom_theme.jumbotron_welcome_title|default:_("Welcome")}}</h1>
+        <h1>{{custom_theme.jumbotron_welcome_title|default:_("Bienvenidos!")}}</h1>
   		<p></p>
-		<p>{{custom_theme.jumbotron_welcome_content|default:_("GeoNode is an open source platform for sharing geospatial data and maps.")}}</p>
+		<p>{{custom_theme.jumbotron_welcome_content|default:_("El Laboratorio urbano es el espacio de la universidad del rosario para:")}}</p>
 		{% if not custom_theme.jumbotron_cta_hide %}
   		<p><a class="btn btn-default btn-lg" target="_blank"
-  				href="{{custom_theme.jumbotron_cta_link|default:_("https://docs.geonode.org/en/master/usage/index.html")}}"
-  				role="button">{{custom_theme.jumbotron_cta_text|default:_("Get Started &raquo;")}}</a></p>
+  				href="{% url "account_signup" %}"
+  				role="button">{{custom_theme.jumbotron_cta_text|default:_("Compartir &raquo;")}}</a>
+          <a class="btn btn-default btn-lg" target="_blank"
+      		href="{% url "layer_browse" %}"
+      		role="button">{{custom_theme.jumbotron_cta_text|default:_("Consultar &raquo;")}}</a>
+          <a class="btn btn-default btn-lg" target="_blank"
+          href="{{custom_theme.jumbotron_cta_link|default:_("http://localhost/documents/?limit=5&offset=0&keywords__slug__in=mapoteca")}}"
+          role="button">{{custom_theme.jumbotron_cta_text|default:_("Visitar la Mapoteca &raquo;")}}</a>
+      </p>
 		{% endif %}
 	</div>
   </div>
@@ -31,7 +38,7 @@
 
   {% block mainbody %}
 
-      {% block bigsearch %}
+      <!-- {% block bigsearch %}
       {% if block.super %}
       {{ block.super }}
       {% else %}
@@ -58,7 +65,7 @@
       	</div>
       </div>
       {% endif %}
-      {% endblock bigsearch %}
+      {% endblock bigsearch %} -->
 
 	  {% block showcase %}
       <section id="showcase">
@@ -69,39 +76,39 @@
              {% facets as facets %}
               <div class="col-md-6">
                 <p><a href="{% url "layer_browse" %}"><i class="fa fa-square-o fa-4x rotate-45"></i></a></p>
-                <h2><a href="{% url "layer_browse" %}">{{ facets.layer|default:_("No") }} {% blocktrans count counter=facets.layer %}Layer{% plural %}Layers{% endblocktrans %}</a></h2>
-                <p>{% trans "Click to search for geospatial data published by other users, organizations and public sources. Download data in standard formats." %}</p>
+                <h2><a href="{% url "layer_browse" %}">{{ facets.layer|default:_("No") }} {% blocktrans count counter=facets.layer %}Capas{% plural %}Capas{% endblocktrans %}</a></h2>
+                <p>{% trans "Haz click para buscar datos espaciales que han publicado nuestros usuarios, descargalos en formato estandar o comparte tus datos." %}</p>
                 {% if user.is_authenticated %}
-                <p class="text-center"><a class="btn btn-default" href="{% url "layer_upload" %}" role="button">{% trans "Add layers" %} &raquo;</a></p>
+                <p class="text-center"><a class="btn btn-default" href="{% url "layer_upload" %}" role="button">{% trans "agrega capas" %} &raquo;</a></p>
                 {% else %}
-                <p class="text-center"><a class="btn btn-default" href="{% url "layer_browse" %}" role="button">{% trans "Explore layers" %} &raquo;</a></p>
+                <p class="text-center"><a class="btn btn-default" href="{% url "layer_browse" %}" role="button">{% trans "Explorar capas" %} &raquo;</a></p>
                 {% endif %}
               </div>
               <div class="col-md-6">
                 <p><a href="{% url "maps_browse" %}"><i class="fa fa-map-marker fa-4x"></i></a></p>
-                <h2><a href="{% url "maps_browse" %}">{{ facets.map|default:_("No") }} {% blocktrans count counter=facets.map %}Map{% plural %}Maps{% endblocktrans %}</a></h2>
-                <p>{% trans "Data is available for browsing, aggregating and styling to generate maps which can be saved, downloaded, shared publicly or restricted to specify users only." %}</p>
+                <h2><a href="{% url "maps_browse" %}">{{ facets.map|default:_("No") }} {% blocktrans count counter=facets.map %}Mapas dinamicos{% plural %}Mapas dinamicos{% endblocktrans %}</a></h2>
+                <p>{% trans "Crea mapas dinamicos, agrega capas y estilos guarda tu composicion, descarga y comparte solo con quienes desees." %}</p>
                 {% if user.is_authenticated %}
-                <p><a class="btn btn-default" href="{% url "new_map" %}" role="button">{% trans "Create maps" %} &raquo;</a></p>
+                <p><a class="btn btn-default" href="{% url "new_map" %}" role="button">{% trans "Crear mapa dinamico" %} &raquo;</a></p>
                 {% else %}
-                <p><a class="btn btn-default" href="{% url "maps_browse" %}" role="button">{% trans "Explore maps" %} &raquo;</a></p>
+                <p><a class="btn btn-default" href="{% url "maps_browse" %}" role="button">{% trans "Explorar mapas dinamicos" %} &raquo;</a></p>
                 {% endif %}
               </div>
               <div class="col-md-6">
                 <p><a href="{% url "document_browse" %}"><i class="fa fa-newspaper-o fa-4x"></i></a></p>
-                <h2><a href="{% url "document_browse" %}">{{ facets.document|default:_("No") }} {% blocktrans count counter=facets.document %}Document{% plural %}Documents{% endblocktrans %}</a></h2>
-                <p>{% trans "As for the layers and maps GeoNode allows to publish tabular and text data, manage theirs metadata and associated documents." %}</p>
+                <h2><a href="{% url "document_browse" %}">{{ facets.document|default:_("No") }} {% blocktrans count counter=facets.document %}Documentos{% plural %}Documentos{% endblocktrans %}</a></h2>
+                <p>{% trans "Encuentra documentos sobre temas de interes en formatos tabulares o tipo texto, además maneja los metadatos." %}</p>
                 {% if user.is_authenticated %}
-                <p class="text-center"><a class="btn btn-default" href="{% url "document_browse" %}" role="button">{% trans "Add documents" %} &raquo;</a></p>
+                <p class="text-center"><a class="btn btn-default" href="{% url "document_browse" %}" role="button">{% trans "agrega documentos" %} &raquo;</a></p>
                 {% else %}
-                <p class="text-center"><a class="btn btn-default" href="{% url "document_browse" %}" role="button">{% trans "Explore documents" %} &raquo;</a></p>
+                <p class="text-center"><a class="btn btn-default" href="{% url "document_browse" %}" role="button">{% trans "ver documentos" %} &raquo;</a></p>
                 {% endif %}
               </div>
               <div class="col-md-6">
                 <p><a href="{% url "profile_browse" %}"><i class="fa fa-user fa-4x"></i></a></p>
-                <h2><a href="{% url "profile_browse" %}">{{ facets.user|default:_("No") }} {% blocktrans count counter=facets.user %}User{% plural %}Users{% endblocktrans %}</a></h2>
-                <p>{% trans "Geonode allows registered users to easily upload geospatial data and various documents in several formats." %}</p>
-                <p><a class="btn btn-default" href="{% url "profile_browse" %}" role="button">{% trans "See users" %} &raquo;</a></p>
+                <h2><a href="{% url "profile_browse" %}">{{ facets.user|default:_("No") }} {% blocktrans count counter=facets.user %}Usuarios{% plural %}Usuarios{% endblocktrans %}</a></h2>
+                <p>{% trans "Crea un usuario, interactua con otros usuarios y solicita acceso a datos privados." %}</p>
+                <p><a class="btn btn-default" href="{% url "profile_browse" %}" role="button">{% trans "ver usuarios" %} &raquo;</a></p>
               </div>
             {% endwith %}
             </div>
@@ -115,7 +122,7 @@
       	<div class="container">
       		<div class="row">
       			<div class="container text-center">
-      				<h1>{% trans "Discover the available datasets." %}</h1>
+      				<h2>{% trans "Descubra los datasets disponibles." %}</h2>
                     <div class="row">
           				<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
           					<a href="{% url "search" %}?limit=100&offset=0&category__identifier__in=biota">

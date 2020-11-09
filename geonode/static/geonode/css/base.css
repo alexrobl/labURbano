@@ -5020,6 +5020,7 @@ a.badge:focus {
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
+  text-align: center;
 }
 .jumbotron p {
   margin-bottom: 1em;
@@ -5051,6 +5052,7 @@ a.badge:focus {
   .jumbotron h1,
   .jumbotron .h1 {
     font-size: 72px;
+    text-align: center;
   }
 }
 .thumbnail {
@@ -6990,7 +6992,7 @@ article.tab-pane {
   margin-left: 10px;
 }
 .navbar-brand {
-  background: url("../img/logo.png");
+  background: url("../img/FEIPU.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -7034,6 +7036,7 @@ article.tab-pane {
 }
 .home .jumbotron p {
   margin-bottom: 0;
+  text-align: center;
 }
 .home .jumbotron .btn-default {
   background: rgba(0, 0, 0, 0.2);

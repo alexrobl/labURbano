@@ -32,8 +32,9 @@
     <meta Http-Equiv="Expires" Content="0">
     <meta Http-Equiv="Pragma-directive: no-cache">
     <meta Http-Equiv="Cache-directive: no-cache">
+    
 
-    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <title>Repositorio</title>
 
     <link rel="shortcut icon" href="{% static 'geonode/img/favicon.ico' %}" />
     <link href="{% static "lib/css/ol.css" %}" rel="stylesheet" />
@@ -49,6 +50,7 @@
           <link href="{% static "lib/css/jquery-ui.theme.css" %}" rel="stylesheet"/>
           <link href="{% static "lib/css/jquery-ui.structure.css" %}" rel="stylesheet"/>
           <link href="{% static "lib/css/bootstrap-treeview.css" %}" rel="stylesheet"/>
+          <link href="{% static "geonode/css/base.css" %}" rel="stylesheet" />
       {% else %}
       <link href="{% static "lib/css/assets.min.css" %}" rel="stylesheet"/>
       {% endif %}
@@ -271,7 +273,7 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <i class="fa fa-navicon fa-lg"></i>
         </button>
-        <a class="navbar-brand" href="{% url "home" %}">GeoNode</a>
+        <a class="navbar-brand" href="{% url "home" %}">LabURbano</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav toolbar">
@@ -711,7 +713,7 @@
     </div>
 
     <div id="confirmMsgBoxModalOK" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <!-- How to use it: 
+      <!-- How to use it:
         $("#confirmMsgBoxModalOK").find('.modal-title').text('{% trans "Title" %}');
         $("#confirmMsgBoxModalOK").find('.modal-body').text('{% trans "Message. Do you want to proceed?" %}');
         $("#confirmMsgBoxModalOK_control_field").val('your_control_value');
