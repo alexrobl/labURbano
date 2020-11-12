@@ -55,6 +55,8 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # Setting debug to true makes Django serve static media and
 # present pretty error pages.
 DEBUG = ast.literal_eval(os.getenv('DEBUG', 'True'))
+# quitar comentario en produccion
+#DEBUG = ast.literal_eval(os.getenv('DEBUG', 'False'))
 
 # Set to True to load non-minified versions of (static) client dependencies
 # Requires to set-up Node and tools that are required for static development
@@ -289,13 +291,15 @@ STATICFILES_FINDERS = (
 # AWS S3 Settings
 S3_STATIC_ENABLED = ast.literal_eval(os.environ.get('S3_STATIC_ENABLED', 'False'))
 S3_MEDIA_ENABLED = ast.literal_eval(os.environ.get('S3_MEDIA_ENABLED', 'False'))
+# quitar comentario para desplegar en produccion
+#S3_MEDIA_ENABLED = ast.literal_eval(os.environ.get('S3_MEDIA_ENABLED', 'True'))
 
 # Required to run Sync Media to S3
-AWS_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', '')
+AWS_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', 'laburbano')
 
-AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', '')
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', 'laburbano')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIA4NNNN6CPHTZJFNVD')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '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')
 AWS_S3_BUCKET_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_QUERYSTRING_AUTH = False
