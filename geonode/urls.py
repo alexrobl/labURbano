@@ -44,6 +44,11 @@ from geonode.monitoring import register_url_event
 from geonode.messaging.urls import urlpatterns as msg_urls
 from .people.views import CustomSignupView
 
+
+admin.site.site_header = "Administración repositorio"
+admin.site.site_title = "Portal administrativo"
+admin.site.index_title = "Bienvenido al repositorio"
+
 admin.autodiscover()
 
 js_info_dict = {

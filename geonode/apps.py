@@ -18,7 +18,14 @@
 #
 #########################################################################
 from django.apps import AppConfig as BaseAppConfig
+# para admin personalizado
+from suit.apps import DjangoSuitConfig
 
+class SuitConfig(DjangoSuitConfig):
+    layout = 'vertical'
+    #admin_name = 'Laboratorio urbano'
+
+#_________________________________
 
 def run_setup_hooks(*args, **kwargs):
     from django.conf import settings

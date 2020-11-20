@@ -41,6 +41,7 @@ django-polymorphic==2.1.2
 django-tastypie<0.15.0
 oauthlib==3.1.0
 pyopenssl==19.1.0
+https://github.com/darklow/django-suit/tarball/v2
 
 # geopython dependencies
 pyproj==2.6.1.post1

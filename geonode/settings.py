@@ -424,6 +424,9 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    # admin personalizado
+    'geonode.apps.SuitConfig',
+    # admin personalizado
     'django.contrib.admin',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
