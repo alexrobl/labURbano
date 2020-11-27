@@ -1,0 +1,23 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>mapoteca</title>
+    <link href="{% static "geonode/css/mapoteca_styles.css" %}" rel="stylesheet" />
+  </head>
+  <body>
+<div class="container-button">
+	<h1>Mapoteca</h1>
+	<ul>
+		<li class="list">
+      <a href="/documents/?limit=5&offset=0&keywords__slug__in=mapoteca">INGRESAR</a>
+    </li>
+	</ul>
+</div>
+<div class="container-map">
+	<img alt="" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/163884/map-original.png">
+</div>
+  </body>
+</html>

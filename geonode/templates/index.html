@@ -18,7 +18,7 @@
   	<div class="container">
         <h1>{{custom_theme.jumbotron_welcome_title|default:_("Bienvenidos!")}}</h1>
   		<p></p>
-		<p>{{custom_theme.jumbotron_welcome_content|default:_("El Laboratorio urbano es el espacio de la universidad del rosario para:")}}</p>
+		<p>{{custom_theme.jumbotron_welcome_content|default:_("El Lab Territorial es el espacio de la universidad del rosario para:")}}</p>
 		{% if not custom_theme.jumbotron_cta_hide %}
   		<p>
         {% if not user.is_authenticated %}
@@ -26,14 +26,14 @@
   				data-toggle="modal" data-target="#SigninModal"
           role="button">{{custom_theme.jumbotron_cta_text|default:_("Compartir &raquo;")}}</a>
        {% endif %}
-          <a class="btn btn-default btn-lg" target="_blank"
+          <a class="btn btn-default btn-lg" target="_self"
       		href="{% url "layer_browse" %}"
       		role="button">{{custom_theme.jumbotron_cta_text|default:_("Consultar &raquo;")}}</a>
           <!-- <a class="btn btn-default btn-lg" target="_blank"
           href="{{custom_theme.jumbotron_cta_link|default:_("http://localhost/documents/?limit=5&offset=0&keywords__slug__in=mapoteca")}}"
           role="button">{{custom_theme.jumbotron_cta_text|default:_("Visitar la Mapoteca &raquo;")}}</a> -->
-          <a class="btn btn-default btn-lg"
-  				data-toggle="modal" data-target="#Mapoteca"
+          <a class="btn btn-default btn-lg" target="_self"
+      		href="{% url "mapoteca" %}"
           role="button">{{custom_theme.jumbotron_cta_text|default:_("Visitar la Mapoteca &raquo;")}}</a>
       </p>
 		{% endif %}
