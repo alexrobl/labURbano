@@ -18,7 +18,7 @@
   	<div class="container">
         <h1>{{custom_theme.jumbotron_welcome_title|default:_("Bienvenidos!")}}</h1>
   		<p></p>
-		<p>{{custom_theme.jumbotron_welcome_content|default:_("El Lab Territorial es el espacio de la universidad del rosario para:")}}</p>
+		<p>{{custom_theme.jumbotron_welcome_content|default:_("<strong>LabDTerritorios</strong> es el espacio de la universidad del rosario para:")}}</p>
 		{% if not custom_theme.jumbotron_cta_hide %}
   		<p>
         {% if not user.is_authenticated %}
